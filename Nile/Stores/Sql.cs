@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Nile.Stores
 {
-   public class Sql: ProductDatabase
+   public class SqlProductDatabase: ProductDatabase
    {
-        public Sql(string connectionString)
+        public SqlProductDatabase(string connectionString)
         {
             _connectionString = connectionString;
         }
@@ -38,7 +38,7 @@ namespace Nile.Stores
             var ds = new DataSet();
             var da = new SqlDataAdapter()
             {
-                SelectCommand = new SqlCommand("GetMovies", conn)
+                SelectCommand = new SqlCommand("GetAllProducts", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 }
@@ -113,7 +113,7 @@ namespace Nile.Stores
 
 
             cmd.ExecuteNonQuery();
-
+            return newItem;
         }
 
         private SqlConnection OpenConnection()

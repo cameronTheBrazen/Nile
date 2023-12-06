@@ -1,6 +1,8 @@
 /*
  * ITSE 1430
  */
+using Nile.Stores;
+
 namespace Nile.Windows
 {
     public partial class MainForm : Form
@@ -157,7 +159,7 @@ namespace Nile.Windows
             catch (Exception ex) { throw new InvalidOperationException(ex.Message); }
         }
 
-        private readonly IProductDatabase _database = new Nile.Stores.Sql();
+        private readonly IProductDatabase _database = new SqlProductDatabase(Program.GetConnectionString("ProductDatabase"));
         #endregion
 
         private void OnHelpAbout(object sender, EventArgs e)

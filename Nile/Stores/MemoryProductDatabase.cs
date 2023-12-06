@@ -85,9 +85,7 @@ namespace Nile.Stores
         private List<Product> _products = new List<Product>();
         private int _nextId = 1;
 
-        public Sql()
-        {
-        }
+     
         #endregion
     }
 }
